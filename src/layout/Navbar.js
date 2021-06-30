@@ -1,7 +1,10 @@
 import { Box, Center, Flex, Icon, Image, Text } from '@chakra-ui/react'
-import React from 'react'
+import React, { useContext } from 'react'
+import ScholarshipContext from '../contexts/ScholarshipContext';
 
 export default function NavBar() {
+    
+    const { schoolData } = useContext(ScholarshipContext);
     return (
         <>
             <Flex
@@ -23,7 +26,7 @@ export default function NavBar() {
                         fontSize="10px"
                         ml="2" pt="1"
                         fontFamily="ApercuPro-Regular">
-                        /Interaction design
+                        /{schoolData.scholarship.program.name}
                         </Text>
                 </Flex>
                 <Image src="./img/menu.svg" />

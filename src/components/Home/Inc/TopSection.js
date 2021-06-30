@@ -1,9 +1,16 @@
 import { Button } from '@chakra-ui/button'
 import { Image } from '@chakra-ui/image'
 import { Container, Box, Center, SimpleGrid, Flex, Text, Stack } from '@chakra-ui/layout'
-import React from 'react'
+import React, { useContext } from 'react'
+import ScholarshipContext from '../../../contexts/ScholarshipContext';
+import DateCountdown from 'react-date-countdown-timer';
 
 export default function TopSection() {
+    const { schoolData } = useContext(ScholarshipContext);
+    console.log(schoolData.scholarship)
+
+    const end_date= new Date(schoolData.scholarship.application_end_date);
+    const start_date= new Date(schoolData.scholarship.scholarship_start_date);
     return (
         <Container maxW="6xl">
           
@@ -17,7 +24,7 @@ export default function TopSection() {
                             lineHeight="56px"
                             letterSpacing="-0.6px"
                             fontWeight="500"
-                        >Interaction Design Apprenticship</Text>
+                        >{schoolData.scholarship.name}</Text>
                         <Image
                             pos="absolute"
                             top="100"
@@ -27,7 +34,8 @@ export default function TopSection() {
                     </Box>
                     <Flex height="80px">
                         <Image
-                            src="./img/zeptolab.svg" />
+                            src={schoolData.scholarship.company.color_logo.src}
+                           />
                         <Box ml="10">
                             <Text
                                 fontSize="18px"
@@ -35,7 +43,7 @@ export default function TopSection() {
                             >Powered by:</Text>
                             <Text
                                 fontSize="27px"
-                            >Zeptolab</Text>
+                            >{schoolData.scholarship.company.name}</Text>
                         </Box>
                     </Flex>
                 </SimpleGrid>
@@ -46,27 +54,26 @@ export default function TopSection() {
                         spacing={5}
                         mt="6"
                         w="420px"
-                        height="80px">
+                        >
                         <Text
                             color="#535353"
                             fontSize="22px"
                           
                         >
-                            A fully work and study program to launch your tech career
+                             {schoolData.scholarship.program.about}
                        </Text>
                         <Text
                             color="gray.500"
                             fontSize="22px"
-
+                          
                         >
-                            Harbour.Space has partnered with SCG to empower driven talent and eliminate the barriers to
-                            accessing exceptional education and career opportunities through a Masters Fellowship.
+                          {schoolData.og_meta.desc}
                        </Text>
                         <Text
                             fontSize="22px"
                             d="flex"
                         >
-                            Position: <Text ml="3" color="gray.500"> Marketing Performance
+                            Position: <Text ml="3" color="gray.500"> {schoolData.scholarship.position ? schoolData.scholarship.position : "No position data from API"}
                                   </Text>
                         </Text>
                         <Button py="5"
@@ -105,7 +112,7 @@ export default function TopSection() {
                             <Text
                                 fontSize="27px"
                             >
-                                6 Day : 22 Hrs : 55 Min : 33 Sec
+                            <DateCountdown dateTo={schoolData.scholarship.application_end_date} />
                             </Text>
                         </Box>
                         <SimpleGrid
@@ -126,7 +133,7 @@ export default function TopSection() {
                             <Text
                                         color="gray.500"
                                     >
-                                        Bankok
+                                     {schoolData.scholarship.location.name}
                             </Text>
                                 </Text>
                                 <Text
@@ -139,7 +146,7 @@ export default function TopSection() {
                             <Text
                                         color="gray.500"
                                     >
-                                        30 June 2020
+                                      { start_date.toLocaleDateString('default', { day:'numeric',month: 'long',year:"numeric" })}
                             </Text>
                                 </Text>
                             </Box>
@@ -153,7 +160,7 @@ export default function TopSection() {
                             <Text
                                             color="gray.500"
                                         >
-                                            1 year
+                                             {schoolData.scholarship.duration} year(s)
                                            <br /> Full-Time
                             </Text>
                                     </Text>
@@ -166,7 +173,7 @@ export default function TopSection() {
                             <Text
                                             color="gray.500"
                                         >
-                                            3 August 2020
+                                        { end_date.toLocaleDateString('default', { day:'numeric',month: 'long',year:"numeric" })}
                             </Text>
                                     </Text>
                             </Box>
@@ -187,4 +194,5 @@ export default function TopSection() {
             </Container>
            
     )
+                        
 }
