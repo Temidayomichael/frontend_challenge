@@ -3,7 +3,7 @@ import { Image } from '@chakra-ui/image'
 import { Container, Box, Center, SimpleGrid, Flex, Text, Stack } from '@chakra-ui/layout'
 import React, { useContext } from 'react'
 import ScholarshipContext from '../../../contexts/ScholarshipContext';
-import DateCountdown from 'react-date-countdown-timer';
+import Countdown from 'react-countdown';
 
 export default function TopSection({start_date, end_date}) {
     const { schoolData } = useContext(ScholarshipContext);
@@ -35,7 +35,7 @@ export default function TopSection({start_date, end_date}) {
                             
                             src="./img/IntDesign.svg" />
                     </Box>
-                    <Flex flexDirection={["column-reverse", "inherit"]} height="80px">
+                    <Flex flexDirection={["column-reverse","colomn-reverse", "inherit"]} height="80px">
                         <Image
                             src="./img/zeptolab.svg"
                             boxSize={['62px','82px']}
@@ -110,7 +110,7 @@ export default function TopSection({start_date, end_date}) {
                          </Button>
                         
                     </Stack>
-                    <Box>
+                    <Box w="100%">
                         <Box
                             boxShadow="base"
                             p="10">
@@ -125,7 +125,10 @@ export default function TopSection({start_date, end_date}) {
                                 d='flex'
                                 justifyContent="space-between"
                             >
-                            <DateCountdown mostSignificantFigure='year' numberOfFigures='3' dateTo={schoolData.scholarship.application_end_date} />
+                               
+                                <Countdown date={schoolData.scholarship.application_end_date}>
+                                    <Text fontSize="38px" >00:00:00:00</Text>
+                                </Countdown>
                             </Text>
                         </Box>
                         <SimpleGrid

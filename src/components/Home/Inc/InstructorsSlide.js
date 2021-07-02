@@ -38,6 +38,7 @@ export default function InstructorsSlide() {
                     className="mySwiper"
                     navigation={true}
                     loop={true}
+                    style={{ width:'100%' }}
                     breakpoints={{
                         "@0.00": {
                             "slidesPerView": 1,

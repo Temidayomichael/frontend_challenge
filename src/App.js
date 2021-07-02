@@ -32,7 +32,7 @@ export default function App() {
       : <Center h="100vh">
         <Text
           fontFamily="ApercuPro-Medium"
-          fontSize="68px"
+          fontSize={["10px","28px"]}
           letterSpacing="widest"
           color="#685DC5"
         >

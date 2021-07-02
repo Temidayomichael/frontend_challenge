@@ -20,7 +20,7 @@ export default function FAQ() {
   
 console.log(filterOptions)
     return (
-         <Container as={Box} mt={["0px","50px"]} minH="70vh" maxW="6xl">
+         <Container as={Box} mt={["30px","50px"]} minH="70vh" maxW="6xl">
             <Flex display={["block","flex"]} justifyContent="space-between" >
                 <Text
                     color="#685DC5"

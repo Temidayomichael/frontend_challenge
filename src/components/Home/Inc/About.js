@@ -7,7 +7,7 @@ export default function About() {
     const { schoolData } = useContext(ScholarshipContext);
     return (
         <>
-            <Container as={Box} py="20" minH="100vh" mt="100px" maxW="6xl">
+            <Container as={Box} py="20" minH="100vh" mt="50px" maxW="6xl">
                 <Box display={["inherit","inherit", "flex"]} w="100%">
                     <Center w={["100%","100%", "50%"]} >
                         <Image
@@ -18,7 +18,7 @@ export default function About() {
                 
                         />
                     </Center>
-                    <Box w={["100%","100%", "50%"]} >
+                    <Box w={["100%","100%", "50%"]} my="5" >
                         <Text color="#685DC5" fontSize={["35px", "48px"]}>
                             About the <br /> apprenticeship
                     </Text>
