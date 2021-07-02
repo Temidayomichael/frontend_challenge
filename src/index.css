@@ -17,3 +17,13 @@ body {
  
 }
 
+.swiper-slide {
+width: 800px !important;
+z-index: "-50" !important;
+
+}
+
+.bgImg{
+  height: 11px;
+  width: 1891px;
+}

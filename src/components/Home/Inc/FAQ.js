@@ -8,11 +8,18 @@ import {
     AccordionIcon,
     Container, Flex, Select, Text
 } from '@chakra-ui/react'
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { AiFillMinusCircle } from "react-icons/ai";
-import { MdAddCircle } from "react-icons/md";
+import { IoIosAddCircleOutline } from "react-icons/io";
+import ScholarshipContext from '../../../contexts/ScholarshipContext';
 
 export default function FAQ() {
+  const { schoolData } = useContext(ScholarshipContext);
+  const filterArray = schoolData.scholarship.faqs.items;
+  const filterOptions = filterArray.filter((elem, index) => filterArray.findIndex(data => data.type === elem.type) === index);
+  const [selectedFilter, setSelectedFilter] = useState(filterOptions[0].type)
+  
+console.log(filterOptions)
     return (
          <Container as={Box} py="20" minH="100vh" mt="100px" maxW="6xl">
             <Flex justifyContent="space-between" >
@@ -28,96 +35,64 @@ export default function FAQ() {
                     <Text color="#6A6A6A" fontSize="16px">Filter by:</Text>
                     <Select
                         borderRadius="full"
-                        size="lg"
-                       color="#685DC5"  placeholder="Program conditions" />
+              size="lg"
+               onChange={e => {
+                 setSelectedFilter(e.target.value);
+                 console.log(e)
+           }}
+              color="#685DC5">
+              {
+               filterOptions.map((data,index) =>
+                  <>
+                    <option key={index} value={data.type}>{data.type}</option>
+                    </>
+                )}
+                       </Select>
                 </Flex>
             </Flex>
             <Accordion mt="10" allowMultiple>
 
-
-  <AccordionItem>
+          {
+            schoolData.scholarship.faqs.items.filter(data => data.type === selectedFilter).map((data) =>
+          
+          (
+            
+            <AccordionItem>
+            
     {({ isExpanded }) => (
       <>
         <h2>
-          <AccordionButton>
-            <Box flex="1" textAlign="left">
-              Section 2 title
+          <AccordionButton allowToggle >
+            <Box flex="1" size="22px" color="#685DC5" textAlign="left">
+              {data.type}
             </Box>
-            <Box flex="1" textAlign="left">
-              Section 2 title
+            <Box flex="2" textAlign="left">
+             {data.question}
             </Box>
             {isExpanded ? (
-              <MdAddCircle fontSize="48px" />
+                              <AiFillMinusCircle
+                                color="#685dc5"
+                                                                fontSize="38px" />
             ) : (
-              <AiFillMinusCircle fontSize="48px" />
+                                <IoIosAddCircleOutline
+                                color="#685dc5"
+                                  fontSize="38px" />
             )}
           </AccordionButton>
         </h2>
         <AccordionPanel pb={4}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+                      {
+                        data.answer.map((answer) => 
+                          <Text>{answer.data}</Text>
+                        )
+        }
         </AccordionPanel>
       </>
     )}
   </AccordionItem>
+)
+                )}
 
-  <AccordionItem>
-    {({ isExpanded }) => (
-      <>
-        <h2>
-          <AccordionButton>
-            <Box flex="1" textAlign="left">
-              Section 2 title
-            </Box>
-            <Box flex="1" textAlign="left">
-              Section 2 title
-            </Box>
-            {isExpanded ? (
-              <MdAddCircle fontSize="48px" />
-            ) : (
-              <AiFillMinusCircle fontSize="48px" />
-            )}
-          </AccordionButton>
-        </h2>
-        <AccordionPanel pb={4}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </AccordionPanel>
-      </>
-    )}
-  </AccordionItem>
-
-  <AccordionItem>
-    {({ isExpanded }) => (
-      <>
-        <h2>
-          <AccordionButton>
-            <Box flex="1" textAlign="left">
-              Section 2 title
-            </Box>
-            <Box flex="1" textAlign="left">
-              Section 2 title
-            </Box>
-            {isExpanded ? (
-              <MdAddCircle fontSize="48px" />
-            ) : (
-              <AiFillMinusCircle fontSize="48px" />
-            )}
-          </AccordionButton>
-        </h2>
-        <AccordionPanel pb={4}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </AccordionPanel>
-      </>
-    )}
-  </AccordionItem>
 </Accordion>
         </Container>
     )

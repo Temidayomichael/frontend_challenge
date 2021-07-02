@@ -5,51 +5,61 @@ import React, { useContext } from 'react'
 import ScholarshipContext from '../../../contexts/ScholarshipContext';
 import DateCountdown from 'react-date-countdown-timer';
 
-export default function TopSection() {
+export default function TopSection({start_date, end_date}) {
     const { schoolData } = useContext(ScholarshipContext);
     console.log(schoolData.scholarship)
 
-    const end_date= new Date(schoolData.scholarship.application_end_date);
-    const start_date= new Date(schoolData.scholarship.scholarship_start_date);
+    
+   
     return (
         <Container maxW="6xl">
           
             <Box mt="10%">
                 <SimpleGrid minChildWidth="340px" spacingX="40px" spacingY="20px">
-                    <Box bg="white">
+                    <Box  bg="white">
                         <Text
-                            fontSize="48px"
+                            
+                            fontSize={{ base: "35px", md: "40px", lg: "48px" }}
                             color="#685DC5"
-                            width="440px"
-                            lineHeight="56px"
+                            
+                            width={{ base: "292px", md: "440px", lg: "440px" }}
+                              lineHeight={{ base: "40px", md: "40px", lg: "56px" }}
                             letterSpacing="-0.6px"
                             fontWeight="500"
                         >{schoolData.scholarship.name}</Text>
                         <Image
                             pos="absolute"
-                            top="100"
-                            left="410"
-                            boxSize="206px"
+                            top={{ base: "50px", md:"100px" , lg: "100px" }}
+                            left={{ base: "160px", md:"220px", lg: "290px",xl: "440px" }}
+                            boxSize={{ base: "133px", lg: "206px" }}
                             src="./img/IntDesign.svg" />
                     </Box>
-                    <Flex height="80px">
+                    <Flex flexDirection={["column-reverse", "inherit"]} height="80px">
                         <Image
-                            src={schoolData.scholarship.company.color_logo.src}
+                            src="./img/zeptolab.svg"
+                            boxSize={['62px','82px']}
                            />
-                        <Box ml="10">
+                        <Box ml={['0','10px']}>
                             <Text
-                                fontSize="18px"
+                                fontSize={{ base: "14px", md: "18px", lg: "18px", xl: "18px" }}
+                                display={['flex','block']}
                                 color="gray.500"
-                            >Powered by:</Text>
+                            >Powered by:
                             <Text
-                                fontSize="27px"
-                            >{schoolData.scholarship.company.name}</Text>
+                                color="black"
+                                >{schoolData.scholarship.company.name}</Text>
+                                </Text>
                         </Box>
                     </Flex>
                 </SimpleGrid>
                 <SimpleGrid
                     minChildWidth="340px"
-                    spacingX="40px" spacingY="20px">
+                    spacingX="40px" spacingY="20px"
+                    flexDirection={["column-reverse", "inherit"]}
+                    display={["flex","block","flex"]}
+                    mt="10"
+
+                >
                     <Stack
                         spacing={5}
                         mt="6"
@@ -64,7 +74,7 @@ export default function TopSection() {
                        </Text>
                         <Text
                             color="gray.500"
-                            fontSize="22px"
+                            fontSize={["18px","22px"]}
                           
                         >
                           {schoolData.og_meta.desc}
@@ -110,7 +120,7 @@ export default function TopSection() {
                                 Application closes in
                             </Text>
                             <Text
-                                fontSize="27px"
+                                fontSize={["16px","27px"]}
                             >
                             <DateCountdown dateTo={schoolData.scholarship.application_end_date} />
                             </Text>
