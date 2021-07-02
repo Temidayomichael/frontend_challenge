@@ -1,4 +1,4 @@
-import { Box, Button, Center, Flex, Icon, Image, Text } from '@chakra-ui/react'
+import {  Button, Flex, Image, Text } from '@chakra-ui/react'
 import React, { useContext } from 'react'
 import ScholarshipContext from '../contexts/ScholarshipContext';
 

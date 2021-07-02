@@ -1,4 +1,4 @@
-import { Box, Flex, HStack, Text } from '@chakra-ui/react'
+import { Box, HStack, Text } from '@chakra-ui/react'
 import React, { useContext } from 'react'
 import Sticky from 'react-sticky-el'
 import ScholarshipContext from '../../contexts/ScholarshipContext'

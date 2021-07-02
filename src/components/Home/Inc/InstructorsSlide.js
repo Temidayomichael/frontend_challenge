@@ -1,6 +1,5 @@
-import { Image, Img } from '@chakra-ui/image';
-import { HStack } from '@chakra-ui/layout';
-import { Box, Center, Container, Flex, Text } from '@chakra-ui/layout';
+import { Image } from '@chakra-ui/image';
+import { Box, Center, Flex, Text } from '@chakra-ui/layout';
 import React, { useContext } from 'react'
 import SwiperCore, {
   Pagination

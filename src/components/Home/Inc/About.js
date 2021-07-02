@@ -1,5 +1,5 @@
 import { Image } from '@chakra-ui/image';
-import { Box, Center, Divider, Grid, GridItem, SimpleGrid, Stack, Text, Container, Flex } from '@chakra-ui/react'
+import { Box, Center, Divider, Grid, GridItem, SimpleGrid, Text, Container } from '@chakra-ui/react'
 import React, { useContext } from 'react'
 import ScholarshipContext from '../../../contexts/ScholarshipContext';
 

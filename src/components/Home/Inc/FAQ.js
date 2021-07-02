@@ -5,7 +5,6 @@ import {
   AccordionItem,
   AccordionButton,
   AccordionPanel,
-    AccordionIcon,
     Container, Flex, Select, Text
 } from '@chakra-ui/react'
 import React, { useContext, useState } from 'react'
