@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/frontend_challenge/static/css/main.a16d3847.chunk.css",
+    "main.js": "/frontend_challenge/static/js/main.548f34a7.chunk.js",
+    "main.js.map": "/frontend_challenge/static/js/main.548f34a7.chunk.js.map",
+    "runtime-main.js": "/frontend_challenge/static/js/runtime-main.740f0594.js",
+    "runtime-main.js.map": "/frontend_challenge/static/js/runtime-main.740f0594.js.map",
+    "static/css/2.8ba2ca54.chunk.css": "/frontend_challenge/static/css/2.8ba2ca54.chunk.css",
+    "static/js/2.14b65c47.chunk.js": "/frontend_challenge/static/js/2.14b65c47.chunk.js",
+    "static/js/2.14b65c47.chunk.js.map": "/frontend_challenge/static/js/2.14b65c47.chunk.js.map",
+    "index.html": "/frontend_challenge/index.html",
+    "static/css/2.8ba2ca54.chunk.css.map": "/frontend_challenge/static/css/2.8ba2ca54.chunk.css.map",
+    "static/css/main.a16d3847.chunk.css.map": "/frontend_challenge/static/css/main.a16d3847.chunk.css.map",
+    "static/js/2.14b65c47.chunk.js.LICENSE.txt": "/frontend_challenge/static/js/2.14b65c47.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/frontend_challenge/static/media/ApercuPro-Regular.7c77e9a8.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.740f0594.js",
+    "static/css/2.8ba2ca54.chunk.css",
+    "static/js/2.14b65c47.chunk.js",
+    "static/css/main.a16d3847.chunk.css",
+    "static/js/main.548f34a7.chunk.js"
+  ]
+}
