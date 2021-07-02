@@ -38,7 +38,6 @@ export default function InstructorsSlide() {
                     className="mySwiper"
                     navigation={true}
                     loop={true}
-                    style={{ width:'100%' }}
                     breakpoints={{
                         "@0.00": {
                             "slidesPerView": 1,
@@ -62,9 +61,9 @@ export default function InstructorsSlide() {
                         schoolData.scholarship.instructors.map((data) =>
           
                         (
-                            <SwiperSlide style={{ width: '800px' }} >
+                            <SwiperSlide style={{ width: '8000px' }} >
                                 <Box border="1px" borderColor="gray.200" shadow="base">
-                                    <Flex p="20" justifyContent="space-between" bg="white" h="40">
+                                    <Flex p="10" justifyContent="space-between" bg="white" h="40">
                                         <Center>
                                             <>
                                             <Image
@@ -79,7 +78,10 @@ export default function InstructorsSlide() {
                                             </Box>
                                            </>
                                         </Center>
+                                        <Center>
                                         <FaLinkedinIn size="30px" />
+
+                                        </Center>
                                     </Flex>
                                     <Box bg="gray.50" color="gray.500" h="60" p={20}>
                                         <Text fontSize="22px" >
