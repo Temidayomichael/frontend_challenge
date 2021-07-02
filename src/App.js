@@ -32,11 +32,11 @@ export default function App() {
       : <Center h="100vh">
         <Text
           fontFamily="ApercuPro-Medium"
-          fontSize="38px"
+          fontSize="68px"
           letterSpacing="widest"
           color="#685DC5"
         >
-        Harbour space.
+        Harbour.space
         </Text>
     </Center>
    

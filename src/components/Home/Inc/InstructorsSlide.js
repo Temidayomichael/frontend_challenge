@@ -1,91 +1,100 @@
 import { Image, Img } from '@chakra-ui/image';
 import { HStack } from '@chakra-ui/layout';
 import { Box, Center, Container, Flex, Text } from '@chakra-ui/layout';
-import React from 'react'
+import React, { useContext } from 'react'
 import SwiperCore, {
   Pagination
 } from 'swiper/core';
+import { FaLinkedinIn } from 'react-icons/fa';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/swiper.scss';
+import ScholarshipContext from '../../../contexts/ScholarshipContext';
 
 export default function InstructorsSlide() {
+    const { schoolData } = useContext(ScholarshipContext);
+
     SwiperCore.use([Pagination]);
     return (
         <>
-            <Box py="20" zIndex="-50" minH="50vh" mt="100px">
-           <Image
+            <Box  minH="50vh" mt="100px">
+                <Image
                     pos="absolute"
-                    bottom="60em"
+                    bottom="55em"
                     left="50%"
-                   className="bgImg"
+                    htmlWidth="700px"
+                    zIndex="-50"
+                    transform="translateX(-50%)"
+                  
                     
-  transform="translateX(-50%)"
-               
-                            src="./img/Pattern.svg" />
+                    src="./img/Pattern.svg" />
                 <Swiper
                     zIndex="1"
-                   spaceBetween={50}
-                    slidesPerView={2}
+                    spaceBetween={50}
+                    slidesPerView={2.5}
                     centeredSlides={true}
                     onSlideChange={() => console.log('slide change')}
                     onSwiper={(swiper) => console.log(swiper)}
                     className="mySwiper"
                     navigation={true}
                     loop={true}
-                    
+                    breakpoints={{
+                        "@0.00": {
+                            "slidesPerView": 1,
+                            "spaceBetween": 10
+                        },
+                        "@0.75": {
+                            "slidesPerView": 2.5,
+                            "spaceBetween": 20
+                        },
+                        "@1.00": {
+                            "slidesPerView": 3.5,
+                            "spaceBetween": 40
+                        },
+                        "@1.50": {
+                            "slidesPerView": 3.5,
+                            "spaceBetween": 50
+                        }
+                    }}
                 >
-                    <SwiperSlide  >
-                            <Box>
-                                <Flex  bg="blue" h="40">
-                                    <Box>
-                                    <Image src="" />
-                                    <Text> E Choke</Text>
-</Box>
-                                </Flex>
-                                <Box  bg="gray.50" h="60">
-                                    <Text fontSize="26px" p="20">
-                                        This Fellowship was a turning point in my career. I wouldn’t be where I am today without the financial support and experienced offered through the program. 
-</Text>
+                    {
+                        schoolData.scholarship.instructors.map((data) =>
+          
+                        (
+                            <SwiperSlide style={{ width: '800px' }} >
+                                <Box border="1px" borderColor="gray.200" shadow="base">
+                                    <Flex p="20" justifyContent="space-between" bg="white" h="40">
+                                        <Center>
+                                            <>
+                                            <Image
+                                                borderRadius="full"
+                                                boxSize="100px"
+                                                src={data.small_picture.src}
+                                                alt={data.name}
+                                            />
+                                            <Box>
+ <Text ml="5">{data.name}</Text>
+                                            <Text ml="5">{data.category}</Text>
+                                            </Box>
+                                           </>
+                                        </Center>
+                                        <FaLinkedinIn size="30px" />
+                                    </Flex>
+                                    <Box bg="gray.50" color="gray.500" h="60" p={20}>
+                                        <Text fontSize="22px" >
+                                            {data.current_position}
+                                        </Text>
+                                    </Box>
                                 </Box>
-                            </Box>
-                    </SwiperSlide>
+                            </SwiperSlide>
                            
-                    <SwiperSlide  >
-                            <Box>
-                                <Flex  bg="blue" h="40">
-                                    <Box>
-                                    <Image src="" />
-                                    <Text> E Choke</Text>
-</Box>
-                                </Flex>
-                                <Box  bg="gray.50" h="60">
-                                    <Text fontSize="26px" p="20">
-                                        This Fellowship was a turning point in my career. I wouldn’t be where I am today without the financial support and experienced offered through the program. 
-</Text>
-                                </Box>
-                            </Box>
-                    </SwiperSlide>
-                           
-                    <SwiperSlide  >
-                            <Box>
-                                <Flex  bg="blue" h="40">
-                                    <Box>
-                                    <Image src="" />
-                                    <Text> E Choke</Text>
-</Box>
-                                </Flex>
-                                <Box  bg="gray.50" h="60">
-                                    <Text fontSize="26px" p="20">
-                                        This Fellowship was a turning point in my career. I wouldn’t be where I am today without the financial support and experienced offered through the program. 
-</Text>
-                                </Box>
-                            </Box>
-                    </SwiperSlide>
-                           
+                        )
+                        )
+                    
+                    }
                 
-    </Swiper>
+                </Swiper>
             </Box>
         </>
     )

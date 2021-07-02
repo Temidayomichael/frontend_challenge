@@ -21,21 +21,21 @@ export default function FAQ() {
   
 console.log(filterOptions)
     return (
-         <Container as={Box} py="20" minH="100vh" mt="100px" maxW="6xl">
-            <Flex justifyContent="space-between" >
+         <Container as={Box} mt={["0px","50px"]} minH="70vh" maxW="6xl">
+            <Flex display={["block","flex"]} justifyContent="space-between" >
                 <Text
                     color="#685DC5"
-                    fontSize="48px"
-                    lineHeight="56px"
+                    fontSize={["35px","35px","48px"]}
                     letterSpacing="-0.6px"
                 >
                     Frequently asked <br /> questions
                 </Text>
-                <Flex >
-                    <Text color="#6A6A6A" fontSize="16px">Filter by:</Text>
+                <Flex display={["block","block","flex"]} >
+            <Text color="#6A6A6A" mr="3" fontSize={["16px","22px"]}>Filter by:</Text>
+            <Box>
                     <Select
                         borderRadius="full"
-              size="lg"
+              
                onChange={e => {
                  setSelectedFilter(e.target.value);
                  console.log(e)
@@ -47,7 +47,8 @@ console.log(filterOptions)
                     <option key={index} value={data.type}>{data.type}</option>
                     </>
                 )}
-                       </Select>
+              </Select>
+              </Box>
                 </Flex>
             </Flex>
             <Accordion mt="10" allowMultiple>
@@ -63,7 +64,7 @@ console.log(filterOptions)
       <>
         <h2>
           <AccordionButton allowToggle >
-            <Box flex="1" size="22px" color="#685DC5" textAlign="left">
+            <Box flex="1" display={["none","none","inherit"]} size="22px" color="#685DC5" textAlign="left">
               {data.type}
             </Box>
             <Box flex="2" textAlign="left">
@@ -80,7 +81,7 @@ console.log(filterOptions)
             )}
           </AccordionButton>
         </h2>
-        <AccordionPanel pb={4}>
+        <AccordionPanel py={5}>
                       {
                         data.answer.map((answer) => 
                           <Text>{answer.data}</Text>

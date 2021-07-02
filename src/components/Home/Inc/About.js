@@ -8,33 +8,34 @@ export default function About() {
     return (
         <>
             <Container as={Box} py="20" minH="100vh" mt="100px" maxW="6xl">
-                <Center w="100%">
-                    <Center w="50%">
+                <Box display={["inherit","inherit", "flex"]} w="100%">
+                    <Center w={["100%","100%", "50%"]} >
                         <Image
                             borderRadius="full"
-                            boxSize="350px"
+                            boxSize={["250px","350px"]}
                             objectFit="cover"
                             src={schoolData.scholarship.program.photos[0].src}
+                
                         />
                     </Center>
-                    <Box w="50%">
-                        <Text color="#685DC5" fontSize="48px">
+                    <Box w={["100%","100%", "50%"]} >
+                        <Text color="#685DC5" fontSize={["35px", "48px"]}>
                             About the <br /> apprenticeship
                     </Text>
-                        <Text fontSize="22px" lineHeight="32px"> {schoolData.scholarship.about[0].data}</Text>
+                        <Text fontSize={["18px", "22px"]} lineHeight="32px"> {schoolData.scholarship.about[0].data}</Text>
                     </Box>
-                </Center>
+                </Box>
 
                 
                 <Grid
-                   h="500px"
-                    templateRows="repeat(4, 1fr)"
+                    templateRows="repeat(3, 1fr)"
                     templateColumns="repeat(6, 1fr)"
                     gap={6}
-                    mt="200px"
+                    mt={["100px","200px"]}
+                    display={["block","block", "inline-grid"]}
                 >
-                    <GridItem p="40px" rowSpan={4} colSpan={2} shadow="base" >
-                         <Box h="60%" >
+                    <GridItem p="40px" rowSpan={3} colSpan={2} shadow="base" >
+                        <Box h="60%" >
                             <Text color="#685DC5" fontSize="16px">
                                 Scholarship value
                         </Text>
@@ -42,20 +43,20 @@ export default function About() {
                                 €{schoolData.scholarship.total_value}
                             </Text>
                         </Box>
-                             <Divider my="7" borderColor="gray.300"  />
+                        <Divider my="7" borderColor="gray.300" />
                         <Box>
                             <SimpleGrid columns={2} spacing={15}>
                                 <Box>
                                     <Text d="flex" color="#685DC5" fontSize="16px">
                                         Tuition covered
                                     </Text>
-                                      <Text > €{schoolData.scholarship.tuition}</Text>
+                                    <Text > €{schoolData.scholarship.tuition}</Text>
                                 </Box>
                                 <Box>
                                     <Text d="flex" color="#685DC5" fontSize="16px">
-                                        Remaining 
+                                        Remaining
                                     </Text>
-                                      <Text> €{schoolData.scholarship.remaining}</Text>
+                                    <Text> €{schoolData.scholarship.remaining}</Text>
 
                                 </Box>
                                 <Box>
@@ -74,8 +75,8 @@ export default function About() {
                             </SimpleGrid>
                         </Box>
                     </GridItem>
-                    <GridItem p="40px" h="300px" rowSpan={2} colSpan={2} shadow="base">
-                         <Box  >
+                    <GridItem p="40px" rowSpan={2} colSpan={2} shadow="base">
+                        <Box  >
                             <Text color="#685DC5" fontSize="16px">
                                 Study commitment
                         </Text>
@@ -86,7 +87,7 @@ export default function About() {
                         <Divider my="4" w="30px" borderColor="gray.300" />
                         <Text> {schoolData.scholarship.study_commitment_text}</Text>
                     </GridItem>
-                    <GridItem p="40px" h="300px" rowSpan={2} colSpan={2} shadow="base">
+                    <GridItem p="40px" rowSpan={2} colSpan={2} shadow="base">
                         <Box  >
                             <Text color="#685DC5" fontSize="16px">
                                 Internship commitment
@@ -98,19 +99,16 @@ export default function About() {
                         <Divider my="4" w="30px" borderColor="gray.300" />
                         <Text> {schoolData.scholarship.internship_commitment_text}</Text>
                     </GridItem>
-                    <GridItem colSpan={4} bg="" >
-                      
-                    </GridItem>
-                     
+                   
                     <GridItem colSpan={4} shadow="base" p="40px">
                        
-                            <Text color="#685DC5" fontSize="16px">
-                                A full-time contract
+                        <Text color="#685DC5" fontSize="16px">
+                            A full-time contract
                         </Text>
-                            <Text fontSize="26px">
-                              {schoolData.scholarship.duration} year(s)/Full-Time
+                        <Text fontSize="26px">
+                            {schoolData.scholarship.duration} year(s)/Full-Time
                             </Text>
-                      <Divider my="1" w="25px" borderColor="gray.300" />
+                        <Divider my="1" w="25px" borderColor="gray.300" />
                         <Text> You’ll be guaranteed a {schoolData.scholarship.duration} year(s) contract with {schoolData.scholarship.company.name} upon graduation.</Text>
                       
                     </GridItem>

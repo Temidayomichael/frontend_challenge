@@ -1,4 +1,4 @@
-import { Box, Center, Flex, Icon, Image, Text } from '@chakra-ui/react'
+import { Box, Button, Center, Flex, Icon, Image, Text } from '@chakra-ui/react'
 import React, { useContext } from 'react'
 import ScholarshipContext from '../contexts/ScholarshipContext';
 
@@ -30,18 +30,27 @@ export default function NavBar() {
                         </Text>
                 </Flex>
                 <Image src="./img/menu.svg" />
-                <Center bg="#4fa16c"
+                <Button bg="#4fa16c"
                     rounded="full"
                     boxSize="100px"
                     pos="absolute"
                     top="3"
                     left="85%"
                     alignItems="center"
+                    
                     visibility={{ base: "hidden", md: "hidden", lg:"hidden", xl:"visible"}}
-                   
+                     _hover={{
+                                bg: "5cb77c"
+                            }}
+                            _active={{
+                                bg: "5cb77c",
+                                transform: "scale(0.98)",
+                                borderColor: "#5cb77c",
+                                  
+                            }}
                 >
-                   <Text lineHeight="1" textAlign="center" w="50px">Apply Now</Text>
-                </Center>
+                   <Text  lineHeight="1" textAlign="center" >Apply <br/> Now</Text>
+                </Button>
             </Flex>
         </>
     )

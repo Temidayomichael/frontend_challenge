@@ -32,6 +32,7 @@ export default function TopSection({start_date, end_date}) {
                             top={{ base: "50px", md:"100px" , lg: "100px" }}
                             left={{ base: "160px", md:"220px", lg: "290px",xl: "440px" }}
                             boxSize={{ base: "133px", lg: "206px" }}
+                            
                             src="./img/IntDesign.svg" />
                     </Box>
                     <Flex flexDirection={["column-reverse", "inherit"]} height="80px">
@@ -56,18 +57,18 @@ export default function TopSection({start_date, end_date}) {
                     minChildWidth="340px"
                     spacingX="40px" spacingY="20px"
                     flexDirection={["column-reverse", "inherit"]}
-                    display={["flex","block","flex"]}
+                    display={["flex","flex","block","flex"]}
                     mt="10"
 
                 >
                     <Stack
                         spacing={5}
                         mt="6"
-                        w="420px"
+                        w="100%"
                         >
                         <Text
                             color="#535353"
-                            fontSize="22px"
+                            fontSize={["18px","22px"]}
                           
                         >
                              {schoolData.scholarship.program.about}
@@ -80,19 +81,19 @@ export default function TopSection({start_date, end_date}) {
                           {schoolData.og_meta.desc}
                        </Text>
                         <Text
-                            fontSize="22px"
+                            fontSize={["18px","18px","22px"]}
                             d="flex"
                         >
-                            Position: <Text ml="3" color="gray.500"> {schoolData.scholarship.position ? schoolData.scholarship.position : "No position data from API"}
+                            Position: <Text ml="3" color="gray.500"> {schoolData.scholarship.position ? schoolData.scholarship.position : schoolData.scholarship.program.name}
                                   </Text>
                         </Text>
                         <Button py="5"
-                            w="40"
+                        w="157px"
                             as={Center}
                             color="white"
                             bg="#685DC5"
                             borderRadius="full"
-                            size="lg"
+                            size={["xs","sm"]}
                             fontSize="18px"
                             _hover={{
                                 bg: "#887bf7"
@@ -192,7 +193,7 @@ export default function TopSection({start_date, end_date}) {
                         </SimpleGrid>
                          <Image
                             pos="absolute"
-                          
+                          display={["none","none","none","inherit"]}
                                 right="0"
                 top="490"
                 zIndex="-50"

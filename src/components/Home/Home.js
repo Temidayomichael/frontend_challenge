@@ -13,13 +13,13 @@ export default function Home() {
  const start_date= new Date(schoolData.scholarship.scholarship_start_date);
 const end_date= new Date(schoolData.scholarship.application_end_date);
     return (
-        <>
+        <Box>
             <TopSection start_date={start_date} end_date={end_date} />
             <About />
             <InstructorsSlide />
             <FAQ />
             <Sticky mode="bottom">
-                <HStack py="3" bg="white" justifyContent="space-evenly" >
+                <HStack display={["none","none","flex"]} w="100%" py="3" bg="white" justifyContent="space-evenly" >
                     <Box>
                         <Text
                             fontSize="16px"
@@ -88,6 +88,6 @@ const end_date= new Date(schoolData.scholarship.application_end_date);
                     </Box>
                 </HStack>
             </Sticky>
-        </>
+        </Box>
     )
 }
