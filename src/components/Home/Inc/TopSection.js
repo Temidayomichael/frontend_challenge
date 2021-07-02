@@ -121,9 +121,11 @@ export default function TopSection({start_date, end_date}) {
                                 Application closes in
                             </Text>
                             <Text
-                                fontSize={["16px","27px"]}
+                                fontSize={["16px", "27px"]}
+                                d='flex'
+                                justifyContent="space-between"
                             >
-                            <DateCountdown dateTo={schoolData.scholarship.application_end_date} />
+                            <DateCountdown mostSignificantFigure='year' numberOfFigures='3' dateTo={schoolData.scholarship.application_end_date} />
                             </Text>
                         </Box>
                         <SimpleGrid
