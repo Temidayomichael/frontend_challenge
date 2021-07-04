@@ -88,7 +88,7 @@ export default function TopSection({start_date, end_date}) {
                                   </Text>
                         </Text>
                         <Button py="5"
-                        w="157px"
+                            w="157px"
                             as={Center}
                             color="white"
                             bg="#685DC5"
@@ -102,7 +102,7 @@ export default function TopSection({start_date, end_date}) {
                                 bg: "#dddfe2",
                                 transform: "scale(0.98)",
                                 borderColor: "#bec3c9",
-                                   bg: "#887bf7"
+                               
                             }}
                             cursor="pointer"
                         >
@@ -142,26 +142,19 @@ export default function TopSection({start_date, end_date}) {
                             <Box>
                                 <Text
                                     color="#685DC5"
-                                    fontSize="16px"
-                                >
-                                    Location
-                                     
-                            <Text
-                                        color="gray.500"
-                                    >
+                                    fontSize="16px">
+                                    Location  
+                            <Text color="gray.500">
                                      {schoolData.scholarship.location.name}
                             </Text>
                                 </Text>
                                 <Text
                                     color="#685DC5"
                                     fontSize="16px"
-                                    mt="6"
-                                >
-                                    Start date
-                                     
+                                    mt="6">
+                                    Start date      
                             <Text
-                                        color="gray.500"
-                                    >
+                                        color="gray.500" >
                                       { start_date.toLocaleDateString('default', { day:'numeric',month: 'long',year:"numeric" })}
                             </Text>
                                 </Text>
@@ -171,8 +164,7 @@ export default function TopSection({start_date, end_date}) {
                                         color="#685DC5"
                                         fontSize="16px"
                                     >
-                                        Duration
-                                         
+                                        Duration        
                             <Text
                                             color="gray.500"
                                         >
@@ -207,8 +199,7 @@ export default function TopSection({start_date, end_date}) {
                 </SimpleGrid>
             </Box>
               
-            </Container>
-           
+            </Container>   
     )
                         
 }
