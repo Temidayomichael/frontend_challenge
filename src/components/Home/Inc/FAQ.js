@@ -30,7 +30,7 @@ console.log(filterOptions)
                     Frequently asked <br /> questions
                 </Text>
                 <Flex display={["block","block","flex"]} >
-            <Text color="#6A6A6A" mr="3" mt={["32px"]} fontSize={["16px","22px"]}>Filter by:</Text>
+            <Text color="#6A6A6A" mr="3" mt={["32px","0px"]} fontSize={["16px","22px"]}>Filter by:</Text>
             <Box mt="8px">
                     <Select
                         borderRadius="full"
