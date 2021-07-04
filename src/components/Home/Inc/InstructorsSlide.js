@@ -1,4 +1,4 @@
-import { Box, Center, Flex, Text ,Image,IconButton } from '@chakra-ui/react';
+import { Box, Center, Flex, Text ,Image,IconButton, Avatar } from '@chakra-ui/react';
 import React from 'react'
 import { FaLinkedinIn } from 'react-icons/fa';
 // import Slider from "react-slick";
@@ -61,12 +61,9 @@ export default function InstructorsSlide() {
                                 <Flex p="10" justifyContent="space-between" bg="white" h="148px">
                                     <Center>
                                         <>
-                                            <Image
-                                                borderRadius="full"
-                                                boxSize="100px"
-                                                src="./img/slideImage.png"
-                                                
-                                            />
+                                               
+                  <Avatar size="lg" name="Irene Pereyra" bg="#685dc5"  src="./img/slideImage.png" />
+                
                                             <Box>
                                                 <Text ml="5" fontSize="16px">Irene Pereyra</Text>
                                                 <Text ml="5" color="gray.500">Interaction Design Fellow ‘19</Text>
