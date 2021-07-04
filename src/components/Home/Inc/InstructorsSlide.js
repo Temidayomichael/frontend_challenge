@@ -1,57 +1,63 @@
-import { Image } from '@chakra-ui/image';
-import { Box, Center, Flex, Text } from '@chakra-ui/layout';
+import { Box, Center, Flex, Text ,Image,IconButton } from '@chakra-ui/react';
 import React from 'react'
 import { FaLinkedinIn } from 'react-icons/fa';
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import Slider from "react-slick";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 import {  MdKeyboardArrowRight, MdKeyboardArrowLeft } from 'react-icons/md';
-import { IconButton } from '@chakra-ui/button';
+import Carousel from 'nuka-carousel';
+import { useBreakpointValue } from "@chakra-ui/react"
 
 export default function InstructorsSlide() {
-    const slidesSettings = {
-     dots: true,
-      infinite: false,
-      speed: 500,
-      slidesToShow: 4,
-      slidesToScroll: 4,
-        initialSlide: 0,
-      rows:0,
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-              infinite: true,
-             rows:1,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-              slidesToScroll: 2,
-             rows:1,
-            initialSlide: 2
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-              slidesToShow: 4,
-               rows:1,
-            slidesToScroll: 4
-          }
-        }
-      ]
-    };
+    // const slidesSettings = {
+    //  dots: true,
+    //   infinite: false,
+    //   speed: 500,
+    //   slidesToShow: 4,
+    //   slidesToScroll: 4,
+    //     initialSlide: 0,
+    //   rows:0,
+    //   responsive: [
+    //     {
+    //       breakpoint: 1024,
+    //       settings: {
+    //         slidesToShow: 3,
+    //         slidesToScroll: 3,
+    //           infinite: true,
+    //          rows:1,
+    //         dots: true
+    //       }
+    //     },
+    //     {
+    //       breakpoint: 600,
+    //       settings: {
+    //         slidesToShow: 2,
+    //           slidesToScroll: 2,
+    //          rows:1,
+    //         initialSlide: 2
+    //       }
+    //     },
+    //     {
+    //       breakpoint: 480,
+    //       settings: {
+    //           slidesToShow: 4,
+    //            rows:1,
+    //         slidesToScroll: 4
+    //       }
+    //     }
+    //   ]
+    // };
     const slider = React.useRef(null);
-    
+    const variant = useBreakpointValue({ base: "1", md: "1",lg:'1',xl:'2.5' })
     const Slides = () => {
         return(
-         <Box className="slick-slides" border="1px" borderColor="gray.200" shadow="base">
+          <Box className="slick-slides"
+            border="1px" w={["335px", "800px"]}
+            
+            m="auto"
+            borderColor="gray.200"
+            bg="red"
+            shadow="base">
                                 <Flex p="10" justifyContent="space-between" bg="white" h="148px">
                                     <Center>
                                         <>
@@ -72,8 +78,8 @@ export default function InstructorsSlide() {
 
                                     </Center>
                                 </Flex>
-                                <Box bg="gray.50" h="310.54px"   color="gray.500" px="120px" py="56px" >
-                                    <Text fontSize="26px" w="561px" lineHeight="35px" >
+                                <Box bg="gray.50" h="320.54px"   color="gray.500" px={["25px","120px"]} py="56px" >
+                                    <Text fontSize="23px" lineHeight="35px" >
                         This Fellowship was a turning point in my career. I wouldn’t be where I am today without the financial support and experienced offered through the program. 
                                     </Text>
                     <Flex mt="32px">
@@ -98,10 +104,34 @@ export default function InstructorsSlide() {
                     transform="translateX(-50%)"
                   
                     
-                    src="./img/Pattern.svg" />
-                <Slider
-                ref={slider}
-                    {...slidesSettings}
+            src="./img/Pattern.svg" />
+          <Box>
+          <Carousel 
+            renderCenterLeftControls={({ previousSlide }) => (
+              <IconButton ml="10" border="1px" borderColor="gray.400" color="#685dc5" rounded="full" as={MdKeyboardArrowLeft} onClick={previousSlide} />
+
+            )}
+            renderCenterRightControls={({ nextSlide }) => (
+              <IconButton mr="10" border="1px" borderColor="gray.400" color="#685dc5" rounded="full" as={MdKeyboardArrowRight} onClick={nextSlide} />
+
+            )}
+            as={Flex}
+            bg="red.600"
+            slidesToShow={variant}
+            cellSpacing={500}
+              cellAlign="center"
+              getControlsContainerStyles={() => {
+                return {
+                  display :'none'
+                }
+              }
+               }
+            defaultControlsConfig={{
+  pagingDotsStyle: {
+    display: 'none'
+  }
+}}
+
                 >
                          <Slides/>
                          <Slides/>
@@ -110,13 +140,14 @@ export default function InstructorsSlide() {
                          <Slides/>
                          <Slides/>
                 
-                </Slider>
-                <Flex w="100%" px="40" bottom="67em" pos="absolute" justifyContent="space-between">
+                </Carousel>
+                <Flex d="none" w="100%" px="40" bottom="67em" pos="absolute" justifyContent="space-between">
                     
                     <IconButton border="1px" borderColor="gray.400" rounded="full" as={MdKeyboardArrowLeft} onClick={() => slider?.current?.slickPrev()} />
                     <IconButton border="1px" borderColor="gray.400" rounded="full" as={MdKeyboardArrowRight} onClick={() => slider?.current?.slickNext()} />                
                 </Flex>
-            </Box>
+          </Box>
+          </Box>
         </>
     )
 }

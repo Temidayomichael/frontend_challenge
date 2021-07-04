@@ -37,7 +37,7 @@ export default function NavBar() {
                     top="3"
                     left="85%"
                     alignItems="center"
-                    display={["none","inherit"]}
+                    display={{ base: "none" }}
                     visibility={{ base: "hidden", md: "hidden", lg:"hidden", xl:"visible"}}
                      _hover={{
                                 bg: "5cb77c"

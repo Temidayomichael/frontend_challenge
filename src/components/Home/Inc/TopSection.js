@@ -99,10 +99,9 @@ export default function TopSection({start_date, end_date}) {
                                 bg: "#887bf7"
                             }}
                             _active={{
-                                bg: "#dddfe2",
                                 transform: "scale(0.98)",
                                 borderColor: "#bec3c9",
-                               
+                                   bg: "#4fa16c"
                             }}
                             cursor="pointer"
                         >
