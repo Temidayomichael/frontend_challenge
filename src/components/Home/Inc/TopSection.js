@@ -25,7 +25,7 @@ export default function TopSection({start_date, end_date}) {
                             width={{ base: "292px", md: "440px", lg: "440px" }}
                               lineHeight={{ base: "40px", md: "40px", lg: "56px" }}
                             letterSpacing="-0.6px"
-                            fontWeight="500"
+                            fontFamily="ApercuPro-Medium"
                         >{schoolData.scholarship.name}</Text>
                         <Image
                             pos="absolute"
@@ -84,7 +84,10 @@ export default function TopSection({start_date, end_date}) {
                             fontSize={["18px","18px","22px"]}
                             d="flex"
                         >
-                            Position: <Text ml="3" color="gray.500"> {schoolData.scholarship.position ? schoolData.scholarship.position : schoolData.scholarship.program.name}
+                            Position: <Text ml="3" color="gray.500">
+                                {schoolData.scholarship.position
+                                    ?schoolData.scholarship.position
+                                    : schoolData.scholarship.program.name}
                                   </Text>
                         </Text>
                         <Button py="5"

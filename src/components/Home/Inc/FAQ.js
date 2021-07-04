@@ -25,7 +25,8 @@ console.log(filterOptions)
                 <Text
                     color="#685DC5"
                     fontSize={["35px","35px","48px"]}
-                    letterSpacing="-0.6px"
+            letterSpacing="-0.6px"
+            fontFamily="ApercuPro-Medium"
                 >
                     Frequently asked <br /> questions
                 </Text>
@@ -83,7 +84,7 @@ console.log(filterOptions)
         <AccordionPanel py={5}>
                       {
                         data.answer.map((answer) => 
-                          <Text>{answer.data}</Text>
+                          <Text color="gray.500">{answer.data}</Text>
                         )
         }
         </AccordionPanel>

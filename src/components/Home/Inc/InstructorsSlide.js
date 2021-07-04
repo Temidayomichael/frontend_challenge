@@ -1,4 +1,4 @@
-import { Box, Center, Flex, Text ,Image,IconButton, Avatar } from '@chakra-ui/react';
+import { Box, Center, Flex, Text ,Image,IconButton, Avatar,useBreakpointValue } from '@chakra-ui/react';
 import React from 'react'
 import { FaLinkedinIn } from 'react-icons/fa';
 // import Slider from "react-slick";
@@ -6,8 +6,7 @@ import { FaLinkedinIn } from 'react-icons/fa';
 // import "slick-carousel/slick/slick-theme.css";
 import {  MdKeyboardArrowRight, MdKeyboardArrowLeft } from 'react-icons/md';
 import Carousel from 'nuka-carousel';
-import { useBreakpointValue } from "@chakra-ui/react"
-
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
 
 export default function InstructorsSlide() {
     // const slidesSettings = {
@@ -54,7 +53,7 @@ export default function InstructorsSlide() {
     const Slides = () => {
       return (
         <Box className="slick-slides"
-          border="1px" w={["335px", "800px"]}
+          w={["335px", "800px"]}
           m="auto"
           borderColor="gray.200"
           shadow="base">
@@ -96,19 +95,25 @@ export default function InstructorsSlide() {
           pos="absolute"
           bottom={["50em", "63em"]}
           left="50%"
-          w="1120px"
+          w={["100%","100%","100%","1120px"]}
           zIndex="-1"
           bg={["#685dc5", "transparent"]} h="394.07px"
           transform="translateX(-50%)"
           color="#685dc5"
         >
           <Image
-                    
+            h="394.07px"
+            pos="absolute"
+            transform="translateX(-50%)"
+            left="50%"
+            w="1120px"
+            visibility={["hidden", "visible"]}
             src={"./img/Pattern.svg"} />
            
         </Box>
         <Box>
           <Carousel
+            ref={slider}
             renderCenterLeftControls={({ previousSlide }) => (
               <IconButton ml="10" border="1px" borderColor="gray.400" color="#685dc5" rounded="full" as={MdKeyboardArrowLeft} onClick={previousSlide} />
 
@@ -117,9 +122,8 @@ export default function InstructorsSlide() {
               <IconButton mr="10" border="1px" borderColor="gray.400" color="#685dc5" rounded="full" as={MdKeyboardArrowRight} onClick={nextSlide} />
 
             )}
-            as={Flex}
             slidesToShow={variant}
-            cellSpacing={500}
+            cellSpacing={800}
             cellAlign="center"
             getControlsContainerStyles={() => {
               return {
@@ -142,10 +146,10 @@ export default function InstructorsSlide() {
             <Slides />
                 
           </Carousel>
-          <Flex d="none" w="100%" px="40" bottom="67em" pos="absolute" justifyContent="space-between">
-                    
-            <IconButton border="1px" borderColor="gray.400" rounded="full" as={MdKeyboardArrowLeft} onClick={() => slider?.current?.slickPrev()} />
-            <IconButton border="1px" borderColor="gray.400" rounded="full" as={MdKeyboardArrowRight} onClick={() => slider?.current?.slickNext()} />
+          <Flex w="100%" px={["5", "40"]} visibility={["visible", "hidden"]}
+            my="4" justifyContent="flex-end">
+            <IconButton border="1px" borderColor="gray.400" rounded="full" as={ChevronLeftIcon} onClick={() => slider?.current?.previousSlide()} />
+            <IconButton border="1px"ml="4" borderColor="gray.400"  rounded="full" as={ChevronRightIcon} onClick={() => slider?.current?.nextSlide()} />
           </Flex>
         </Box>
       </Box>

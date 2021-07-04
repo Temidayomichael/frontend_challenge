@@ -9,20 +9,30 @@ export default function About() {
         <>
             <Container as={Box} py="20" minH="100vh" mt="50px" maxW="6xl">
                 <Box display={["inherit","inherit", "flex"]} w="100%">
-                    <Center w={["100%","100%", "50%"]} >
+                    <Center
+                        
+                        w={["100%", "100%", "50%"]} >
+                        <Center
+                            borderRadius="full"
+                            p="10"
+                            backgroundImage="./img/imgBorder.png"
+                            backgroundRepeat="no-repeat"
+                        >
                         <Image
                             borderRadius="full"
-                            boxSize={["250px","350px"]}
-                            objectFit="cover"
+                            boxSize={["250px", "350px"]}
+                                objectFit="cover"
                             src={schoolData.scholarship.program.photos[0].src}
-                
-                        />
+                            />
+                            
+                            </Center>
                     </Center>
-                    <Box w={["100%","100%", "50%"]} my="5" >
-                        <Text color="#685DC5" fontSize={["35px", "48px"]}>
+                    
+                    <Box bg="red" w={["100%","100%", "50%"]} my="5" >
+                        <Text color="#685DC5" fontFamily="ApercuPro-Medium" fontSize={["35px", "48px"]}>
                             About the <br /> apprenticeship
-                    </Text>
-                        <Text fontSize={["18px", "22px"]} lineHeight="32px"> {schoolData.scholarship.about[0].data}</Text>
+                    </Text >
+                        <Text color="gray.500" fontSize={["18px", "22px"]} lineHeight="32px"> {schoolData.scholarship.about[0].data}</Text>
                     </Box>
                 </Box>
 
