@@ -14,13 +14,13 @@ export default function About() {
                         w={["100%", "100%", "50%"]} >
                         <Center
                             borderRadius="full"
-                            p="10"
+                            p="4"
                             backgroundImage="./img/imgBorder.png"
                             backgroundRepeat="no-repeat"
                         >
                         <Image
                             borderRadius="full"
-                            boxSize={["250px", "350px"]}
+                            boxSize={["250px", "300px"]}
                                 objectFit="cover"
                             src={schoolData.scholarship.program.photos[0].src}
                             />
@@ -28,7 +28,7 @@ export default function About() {
                             </Center>
                     </Center>
                     
-                    <Box bg="red" w={["100%","100%", "50%"]} my="5" >
+                    <Box w={["100%","100%", "50%"]} my="5" >
                         <Text color="#685DC5" fontFamily="ApercuPro-Medium" fontSize={["35px", "48px"]}>
                             About the <br /> apprenticeship
                     </Text >

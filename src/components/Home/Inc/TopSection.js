@@ -9,7 +9,7 @@ export default function TopSection({start_date, end_date}) {
     const { schoolData } = useContext(ScholarshipContext);
     console.log(schoolData.scholarship)
 
-    
+
    
     return (
         <Container maxW="6xl">
