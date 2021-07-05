@@ -8,7 +8,7 @@ import Countdown from 'react-countdown';
 export default function TopSection({start_date, end_date}) {
     const { schoolData } = useContext(ScholarshipContext);
     console.log(schoolData.scholarship)
-
+const applicationEndDate = new Date(schoolData.scholarship.application_end_date)
 
    
     return (
@@ -128,7 +128,7 @@ export default function TopSection({start_date, end_date}) {
                                 justifyContent="space-between"
                             >
                                
-                                <Countdown date={schoolData.scholarship.application_end_date}>
+                                <Countdown date={applicationEndDate}>
                                     <Text fontSize="38px" >00:00:00:00</Text>
                                 </Countdown>
                             </Text>

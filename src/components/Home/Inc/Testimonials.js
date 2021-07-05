@@ -8,7 +8,7 @@ import {  MdKeyboardArrowRight, MdKeyboardArrowLeft } from 'react-icons/md';
 import Carousel from 'nuka-carousel';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
 
-export default function InstructorsSlide() {
+export default function Testimonials() {
     // const slidesSettings = {
     //  dots: true,
     //   infinite: false,

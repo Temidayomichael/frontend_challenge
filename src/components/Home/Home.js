@@ -4,7 +4,7 @@ import Sticky from 'react-sticky-el'
 import ScholarshipContext from '../../contexts/ScholarshipContext'
 import About from './Inc/About'
 import FAQ from './Inc/FAQ'
-import InstructorsSlide from './Inc/InstructorsSlide'
+import Testimonials from './Inc/Testimonials'
 import TopSection from './Inc/TopSection'
 
 export default function Home() {
@@ -16,7 +16,7 @@ const end_date= new Date(schoolData.scholarship.application_end_date);
         <Box>
             <TopSection start_date={start_date} end_date={end_date} />
             <About />
-            <InstructorsSlide />
+            <Testimonials />
             <FAQ />
             <Sticky mode="bottom">
                 <HStack display={["none","none","flex"]} w="100%" py="3" bg="white" justifyContent="space-evenly" >
