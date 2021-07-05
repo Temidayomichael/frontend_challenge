@@ -32,7 +32,7 @@ export default function NavBar() {
                     </Text>
                 </Flex>
                 <Flex>
-                        <Image border="1px" src="./img/menu.svg" />
+                        <Image src="./img/menu.svg" />
                     <Button bg="#4fa16c"
                         rounded="full"
                         boxSize="100px"
@@ -40,7 +40,7 @@ export default function NavBar() {
                         top="3"
                             left={{ md: "80%", lg: "85%" }}
                         alignItems="center"
-                        visibility={{ base: "hidden", md: "visible" }}
+                            visibility={["hidden","visible"]}
                         _hover={{
                             bg: "5cb77c"
                         }}
